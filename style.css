@@ -1,0 +1,512 @@
+
+* {
+    border: 0;
+    list-style:none;
+    padding: 0; 
+    margin: 0;    
+  }
+
+/* A:link {color: white; text-decoration: none } */
+
+body {
+    color: #060A24;
+    letter-spacing: 0;
+  }
+ 
+h1, h2 {
+  margin-top: 16px;
+  margin-bottom: 16px;
+  font-family: 'IBM Plex Sans', 'sans-serif', 'arial';
+  font-size: 36px;
+  line-height: 42px;
+}
+
+.parrafos {
+  font-family: 'IBM Plex Mono', 'sans-serif', 'arial';
+  font-size: 14px;
+  line-height: 22px;
+}
+
+.temas {
+  font-family: 'IBM Plex Sans-Semi Bold, 'sans-serif', 'arial'';
+  font-size: 24px;
+  text-align: center;
+  padding: 16px;
+}
+
+.botones-verdes {
+  display: block;
+  width: 100%;
+  height: 48px;
+  background: #00F3BB;
+  font-family: 'IBMPlexMono', 'sans-serif', 'arial';
+  font-size: 16px;
+  text-align: center;
+  line-height: 22px;
+}
+
+.botones-verdes:hover {
+  background-image: linear-gradient(to right, #00F0B8, #0000FE);
+  color: white;
+}
+
+.spoti {
+  width: 100%;
+  height: 232px; 
+}
+
+.fotos {
+  width: 100%;
+  display: block;
+  margin: 0 auto; 
+}
+
+.triangulo1 {
+  width: 100%;
+  height: 200px;
+  background-color: blue;
+  clip-path: polygon(100% 65%, 0% 100%, 100% 100%); 
+}
+.triangulo2 {
+  width: 100%;
+  height: 200px;
+  background-color: blue;
+  clip-path: polygon(100% 0, 0 0, 0 55%);
+}
+.triangulo3 {
+  width: 100%;
+  height: 200px;
+  background-color: blue;
+  clip-path: polygon(100% 65%, 0% 100%, 100% 100%); 
+}
+
+.contenedor {   
+  width: 100%;  
+  display: grid;
+  grid-gap: 0px;
+  grid-template-columns: 1, 1fr;
+  grid-template-rows: repeat(11, auto);
+  grid-template-areas: "header"
+                       "hello-world"
+                       "triangulo1"
+                       "episodios"
+                       "triangulo2"
+                       "de-donde-venimos"
+                       "invitadas-estelares"
+                       "nuestros-temas"
+                       "triangulo3"
+                       "novedades"
+                       "footer";
+}
+
+.header {
+  grid-area: header;
+  font-family: 'IBM Plex Sans', 'sans-serif', 'arial';
+}
+.hello-world {
+  grid-area: hello-world; 
+  padding: 16px;
+}
+.triangulo1 {
+  grid-area: triangulo1;
+  margin-top: -120px; 
+}
+.episodios {
+  grid-area: episodios; 
+  width: 100%;
+}
+.triangulo2 {
+  grid-area: triangulo2; 
+}
+.de-donde-venimos {
+  grid-area: de-donde-venimos;
+  margin-top: -280px; 
+}
+.invitadas-estelares {
+  grid-area: invitadas-estelares;
+}
+.nuestros-temas{
+  grid-area: nuestros-temas;
+}
+.triangulo3 {
+  grid-area: triangulo3; 
+  margin-top: -150px; 
+}
+.novedades {
+  grid-area: novedades;  
+}
+.footer {
+  grid-area: footer;
+}
+
+/* header */
+
+.header {
+  background-color: #fff;  
+  width: 100%;
+  z-index: 3;
+}
+
+.header ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  overflow: hidden;
+  background-color: #fff;
+}
+
+.header li a {
+  display: block;
+  padding: 20px 20px;
+  text-decoration: none;
+  color: white;
+}
+
+.header li a:hover,
+.header .menu-btn:hover {
+  color: #00F0B8; 
+  text-decoration: line-through; 
+}
+
+.header li a:active,
+.header .menu-btn:active {
+  text-decoration: line-through; 
+}
+
+.header .logo {
+  display: block;
+  float: left;
+  font-size: 2em;
+  padding: 10px 20px;
+  text-decoration: none;
+}
+
+/* menu */
+
+.header .menu {
+  background-color: blue;
+  clear: both;
+  max-height: 0;
+  transition: max-height .2s ease-out;
+}
+
+/* menu icon */
+
+.header .menu-icon {
+  cursor: pointer;
+  display: inline-block;
+  float: right;
+  padding: 28px 20px;
+  position: relative;
+  user-select: none;
+}
+
+.header .menu-icon .navicon {
+  background: #333;
+  display: block;
+  height: 2px;
+  position: relative;
+  transition: background .2s ease-out;
+  width: 18px;
+}
+
+.header .menu-icon .navicon:before,
+.header .menu-icon .navicon:after {
+  background: #333;
+  content: '';
+  display: block;
+  height: 100%;
+  position: absolute;
+  transition: all .2s ease-out;
+  width: 100%;
+}
+
+.header .menu-icon .navicon:before {
+  top: 5px;
+}
+
+.header .menu-icon .navicon:after {
+  top: -5px;
+}
+
+/* menu btn */
+
+.header .menu-btn {
+  display: none;
+}
+
+.header .menu-btn:checked ~ .menu {
+  max-height: 240px;
+}
+
+.header .menu-btn:checked ~ .menu-icon .navicon {
+  background: transparent;
+}
+
+.header .menu-btn:checked ~ .menu-icon .navicon:before {
+  transform: rotate(-45deg);
+}
+
+.header .menu-btn:checked ~ .menu-icon .navicon:after {
+  transform: rotate(45deg);
+}
+
+.header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:before,
+.header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:after {
+  top: 0;
+}
+
+
+/* hello-world */
+
+  .hello-world {
+    margin: 0 auto; 
+  }
+  .hello-world p {
+    padding-bottom: 30px;
+  }
+  
+/* espisodios */
+
+  .episodios {
+    background-color: blue;
+  }
+  .episodios div {
+    padding: 16px;
+  }
+  #h2-episodios {
+    color: white; 
+  }
+  .episodios .spoti4 {
+    padding-bottom: 120px;
+  }
+
+/* de donde venimos */
+
+  .de-donde-venimos {
+    position: relative;
+  }
+  .texto-de-donde-venimos {   
+    padding: 0px 16px 0px 16px;
+  }
+
+/* invitadas estelares */
+
+  .invitadas-estelares h2 {
+    padding: 16px 0px 0px 16px;    
+  }
+  .invitadas-estelares .fotos-invitadas-estelares img {
+    width: 100%;
+    display: block;
+  }
+
+/* nuestros temas */
+
+  .nuestros-temas h2 {
+    margin: 30px 16px 0px 16px;
+  }
+  .nuestros-temas .iconos-temas {
+    margin: 0 auto;
+    text-align: center;
+    padding: 20px;
+  }
+  .nuestros-temas .iconos-temas img {
+    padding-top: 30px;
+  }
+
+/* últimas novedades */
+
+  .novedades {
+    background-color: blue;
+    padding: 20px; 
+  }
+  #ultimas-novedades {
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: -20px; 
+  }
+
+
+/* footer */
+
+.footer {
+  align-content: center;
+  text-align: center; 
+  margin: 16px;
+}
+.footer .frase {
+  display: flex; 
+  justify-content: center;
+  letter-spacing: 2px;  
+}
+.footer .img {
+  display: inline-flex;
+  flex-direction: row; 
+  flex-wrap: nowrap;
+  font-size: 16px;
+}
+.footer .img i { 
+  padding: 16px 15px 0px 15px;
+  justify-content: center;
+}   
+
+
+/* 48em = 768px */
+
+  @media (min-width: 48em) {
+
+    A:link {color: black; text-decoration: none }
+    A:visited {color: black; text-decoration: none }
+    A:hover { color: black; text-decoration: none }
+
+    .header li {
+      float: left;
+    }
+    .header li a {
+      padding: 20px 30px;
+      color: black;
+    }
+    .header .menu {
+      background-color: white;
+      clear: none;
+      float: right;
+      max-height: none;
+    }
+    .header .menu-icon {
+      display: none;
+    }
+
+    /* hello-world */
+
+    .hello-world {
+      margin-left: 200px;
+    }
+    .hello-world .punto-azul {
+      color: blue;
+    }
+    .hello-world p {
+      max-width: 530px;
+    }
+    .hello-world button {
+      width: 226px;
+    }
+
+    /* espisodios */
+
+    .episodios { 
+      width: 100%;
+      display: grid;
+      grid-gap: 0px;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(2, auto);  
+      grid-template-areas: "titulos-episodios titulos-episodios"
+                           "spoti1 spoti2"
+                           "spoti3 spoti4";
+    }  
+
+    .episodios .titulos-episodios {
+      grid-area: titulos-episodios;
+      margin-left: 200px;
+    }
+    
+    .episodios .spoti1 {
+      grid-area: spoti1;   
+      width: 584px;
+      padding-left: 60px;
+    }
+    .episodios .spoti2 {
+      grid-area: spoti2;
+      width: 584px;
+    }
+    .episodios .spoti3 {
+      grid-area: spoti3;
+      width: 584px;
+      padding-left: 60px;
+    }
+    .episodios .spoti4 {
+      grid-area: spoti4;  
+      width: 584px;
+    }
+
+    /* de donde venimos */
+
+    .de-donde-venimos { 
+      display: grid;
+      grid-template-columns: 50% 50%;
+      grid-gap: 10px;
+      color: #060A24 100%;
+      margin-top: -260px; 
+    }
+    .foto-de-donde-venimos {
+      height: 660px;
+      margin-left: 200px;      
+    }  
+    .texto-de-donde-venimos {
+      margin-top: 200px;
+      width: 400px; 
+    }
+    
+
+  /* invitadas estelares */
+    
+    .invitadas-estelares h2 {
+      margin-left: 200px; 
+      padding: 16px; 
+    }
+    .invitadas-estelares {
+      margin-top: 150px; 
+    }
+    .invitadas-estelares .fotos-invitadas-estelares  {
+      display: grid;
+      grid-template-columns: 33% 33% 33%;
+    }
+    
+  /* nuestros temas */
+  
+    .nuestros-temas .iconos-temas {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      width: 950px;
+      margin-bottom: 30px;
+    }
+    .nuestros-temas h2 {
+      margin: 50px 16px 0px 200px; 
+    }
+
+  /* últimas novedades */
+
+  .novedades {
+    padding: 100px;
+  }    
+  #boton-novedades {
+    max-width: 345px;
+    margin: 0 auto; 
+  }
+
+  /* footer */
+  
+    .footer {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    } 
+    .footer .img i { 
+      padding: 16px;
+      color: black;
+    }   
+    .footer .frase p {
+      padding: 16px;
+    }  
+    .footer .img a {
+      color: black;
+    }
+
+  }
+
+
+
+
+
+
